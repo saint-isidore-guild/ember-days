@@ -1,4 +1,5 @@
-# ember-days
+# Ember Days
+Display the [Ember Days](https://www.newadvent.org/cathen/05399b.htm) for a given year
 
 ## Project setup
 ```
