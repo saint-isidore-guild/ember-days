@@ -68,15 +68,12 @@
               </v-card-actions>
             </v-card>
           </v-dialog>
-
-
       </div>
+
       <ember-days :year="year"></ember-days>
 
     </v-main>
-    <v-footer
-        app
-    >
+    <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }} </span> <a href="https://saint-isidore-guild.github.io/" target="_blank" class="pl-2"> St. Isidore Guild</a>
     </v-footer>
   </v-app>

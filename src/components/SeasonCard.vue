@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="3">
+  <v-col cols="12" md="3">
     <h2>{{ seasonName }}</h2>
     <h3>{{formattedDates}}</h3>
   </v-col>
