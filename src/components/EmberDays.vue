@@ -1,38 +1,22 @@
 <template>
   <v-container>
     <v-row class="text-center">
-      <v-col cols="3">
-        <h3>Fall</h3>
-        {{fall}}
-      </v-col>
-      <v-col cols="3">
-        <h3>Winter</h3>
-        {{winter}}
-      </v-col>
-      <v-col cols="3">
-        <h3>Spring</h3>
-        {{spring}}
-      </v-col>
-      <v-col cols="3">
-        <h3>Summer</h3>
-        {{summer}}
-      </v-col>
+      <season-card season-name="Spring" :start-date="spring"></season-card>
+      <season-card season-name="Summer" :start-date="summer"></season-card>
+      <season-card season-name="Winter" :start-date="winter"></season-card>
+      <season-card season-name="Fall" :start-date="fall"></season-card>
     </v-row>
   </v-container>
 </template>
 
 <script>
 import {calculateFall, calculateWinter, calculateSpring, calculateSummer} from "../utils/dateUtils"
+import SeasonCard from "@/components/SeasonCard";
 
   export default {
     name: 'EmberDays',
+    components: {SeasonCard},
     props: {year: Number},
-    data: () => ({
-
-    }),
-    methods: {
-
-    },
     computed: {
       fall() {
         return calculateFall(this.year)

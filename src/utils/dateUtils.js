@@ -20,6 +20,13 @@ export const calculateSummer = (year) => {
   return addDays(easter, 49 + 3); // Wednesday after Pentecost
 }
 
+export const calculateAllDates = (startDate) => {
+  let dates = [startDate] // Wednesday
+  dates.push(addDays( startDate, 2)) // Friday
+  dates.push(addDays( startDate, 3)) // Saturday
+  return dates
+}
+
 const findNextWednesdayAfterDate = (date) => {
   while (date.getDay() != 3) {
     date = addDays(date, 1)
