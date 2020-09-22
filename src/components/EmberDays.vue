@@ -3,8 +3,8 @@
     <v-row class="text-center">
       <season-card season-name="Spring" :start-date="spring"></season-card>
       <season-card season-name="Summer" :start-date="summer"></season-card>
-      <season-card season-name="Winter" :start-date="winter"></season-card>
       <season-card season-name="Fall" :start-date="fall"></season-card>
+      <season-card season-name="Winter" :start-date="winter"></season-card>
     </v-row>
   </v-container>
 </template>
