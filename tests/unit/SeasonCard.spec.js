@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import SeasonCard from '@/components/SeasonCard'
 
-describe('SesonCard.vue', () => {
+describe('SeasonCard.vue', () => {
   it('renders props when passed', () => {
     const msg = 'Spring February 1, 3, 4'
     const wrapper = shallowMount(SeasonCard, {
