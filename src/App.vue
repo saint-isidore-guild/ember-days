@@ -71,6 +71,9 @@
       </div>
 
       <ember-days :year="year"></ember-days>
+      <calendar-generator  :year="year"></calendar-generator>
+
+    
 
     </v-main>
     <v-footer app>
@@ -80,18 +83,21 @@
 </template>
 
 <script>
-import EmberDays from "./components/EmberDays"
+import EmberDays from "./components/EmberDays";
+import CalendarGenerator from "./components/CalendarGenerator";
+
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
-    EmberDays
+    EmberDays,
+    CalendarGenerator,
   },
 
   data: () => ({
     year: new Date().getFullYear(),
-    dialog: false
+    dialog: false,
   }),
 };
 </script>
