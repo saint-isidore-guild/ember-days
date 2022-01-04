@@ -1,6 +1,13 @@
 
 <template >
-    <v-btn x-small color="primary" dark :style="{left: '50%', transform:'translateX(-50%)'}"> Add to Calendar </v-btn>
+  <v-btn
+    x-small
+    color="primary"
+    dark
+    
+  >
+    Add to Calendar
+  </v-btn>
 </template>
 
 <script>

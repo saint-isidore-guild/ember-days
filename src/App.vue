@@ -71,7 +71,10 @@
       </div>
 
       <ember-days :year="year"></ember-days>
+
+      <div class="d-flex justify-center mt-5">
       <calendar-generator  :year="year"></calendar-generator>
+      </div>
 
     
 
