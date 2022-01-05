@@ -2,10 +2,7 @@ import { nanoid } from 'nanoid'
 
 export function createIcs(year) {
 
-
     const ics = require('ics');
-
-
 
     const { error, value } = ics.createEvents(
         [{
@@ -27,15 +24,18 @@ export function createIcs(year) {
     if (error) {
         console.log(error)
         return
+    }else{
+        return value
     }
 
-    console.log(value)
+}
+export function downloadIcs(value){
+
 
     var filename = `ember-days.ics`
     var blob = new Blob([value], {
         type: 'text/calendar;charset=utf8'
     })
-    console.log(blob.type)
     if (window.navigator.msSaveOrOpenBlob) {
         window.navigator.msSaveBlob(blob, filename)
     } else {

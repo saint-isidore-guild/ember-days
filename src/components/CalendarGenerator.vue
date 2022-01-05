@@ -6,13 +6,16 @@
 </template>
 
 <script>
-import { createIcs } from "../utils/icsFileUtils";
+import { createIcs, downloadIcs } from "../utils/icsFileUtils";
 export default {
   name: "CalendarGenerator",
   props: { year: Number },
   methods: {
     addToCalendar: function () {
-      createIcs(this.year);
+     let value = createIcs(this.year);
+      if (value != null) {
+        downloadIcs(value);
+      }
     },
   },
 };
