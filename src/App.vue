@@ -72,7 +72,7 @@
 
       <ember-days :year="year"></ember-days>
 
-      <div class="d-flex justify-center mt-5">
+      <div class="d-flex justify-center my-5">
       <calendar-generator  :year="year"></calendar-generator>
       </div>
 
@@ -95,7 +95,7 @@ export default {
 
   components: {
     EmberDays,
-    CalendarGenerator,
+    CalendarGenerator
   },
 
   data: () => ({
