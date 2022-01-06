@@ -1,7 +1,6 @@
-import { nanoid } from 'nanoid';
 import Vevent from '../utils/vevent';
 
-export function createIcs(eventDates) {
+export function createIcsFile(eventDates) {
 
     const ics = require('ics');
     const { error, value } = ics.createEvents(eventDates);
@@ -13,7 +12,7 @@ export function createIcs(eventDates) {
         return value; //events in ics file.
     }
 }
-export function downloadIcs(value, year) {
+export function downloadIcsFile(value, year) {
 
 
     var filename = "ember-days-" + year + ".ics"; // file will download with this name
@@ -38,12 +37,10 @@ export function createIcsEventDates(dates) {
     for (let i = 0; i < dates.length; i++) {
         for (let j = 0; j < dates[i].length; j++) {
             let date = new Date(dates[i][j]);
-            let event = new Vevent('-//St. Isidore Guild//Ember Days App//EN',
-                'Ember Day',
-                'Prayer and Fasting',
+            let event = new Vevent(
                 startDay(date),
-                endDay(date), // must be day after
-                nanoid() + "@ember-days.netlify.app");
+                endDay(date) // must be day after
+            );
             events.push(event);
         }
     }

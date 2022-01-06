@@ -1,13 +1,15 @@
+import { nanoid } from 'nanoid';
+
 export default class Vevent {
 
-    constructor(productId, title, description, start, end, uid) {
+    constructor(start, end) {
 
-       this.productId = productId;
-       this.title = title;
-       this.description = description;
+       this.productId = '-//St. Isidore Guild//Ember Days App//EN';
+       this.title = 'Ember Day';
+       this.description = "Prayer and Fasting";
        this.start = start;
        this.end = end;
-       this.uid = uid;
+       this.uid = nanoid() + "@ember-days.netlify.app";
 
     }
 }

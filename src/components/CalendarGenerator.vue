@@ -7,8 +7,8 @@
 
 <script>
 import {
-  createIcs,
-  downloadIcs,
+  createIcsFile,
+  downloadIcsFile,
   createIcsEventDates,
 } from "../utils/icsFileUtils";
 import {
@@ -31,10 +31,10 @@ export default {
         calculateAllDates(calculateSummer(this.year)),
       ];
       let eventDates = createIcsEventDates(dates);
-      let value = createIcs(eventDates);
+      let value = createIcsFile(eventDates);
 
       if (value != null) {
-        downloadIcs(value, this.year);
+        downloadIcsFile(value, this.year);
       }
     },
   },
