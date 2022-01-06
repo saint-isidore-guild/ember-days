@@ -54,7 +54,6 @@ export function createIcsEventDates(dates) {
         }
 
     }
-    console.log(events)
     return events;
 
 }
