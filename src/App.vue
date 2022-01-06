@@ -91,7 +91,7 @@ import CalendarGenerator from "./components/CalendarGenerator";
 
 
 export default {
-  name: "App",
+  name: 'App',
 
   components: {
     EmberDays,
@@ -101,6 +101,6 @@ export default {
   data: () => ({
     year: new Date().getFullYear(),
     dialog: false,
-  }),
+  })
 };
 </script>
