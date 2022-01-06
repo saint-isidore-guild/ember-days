@@ -6,15 +6,35 @@
 </template>
 
 <script>
-import { createIcs, downloadIcs } from "../utils/icsFileUtils";
+import {
+  createIcs,
+  downloadIcs,
+  createIcsEventDates,
+} from "../utils/icsFileUtils";
+import {
+  calculateFall,
+  calculateWinter,
+  calculateSpring,
+  calculateSummer,
+} from "../utils/dateUtils";
+import { calculateAllDates } from "@/utils/dateUtils";
+
 export default {
   name: "CalendarGenerator",
   props: { year: Number },
   methods: {
     addToCalendar: function () {
-     let value = createIcs(this.year);
+      let dates = [
+        calculateAllDates(calculateFall(this.year)),
+        calculateAllDates(calculateWinter(this.year)),
+        calculateAllDates(calculateSpring(this.year)),
+        calculateAllDates(calculateSummer(this.year)),
+      ];
+      let eventDates = createIcsEventDates(dates);
+
+      let value = createIcs(eventDates);
       if (value != null) {
-        downloadIcs(value);
+        downloadIcs(value, this.year);
       }
     },
   },
