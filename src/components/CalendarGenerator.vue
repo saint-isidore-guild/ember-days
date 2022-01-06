@@ -31,8 +31,8 @@ export default {
         calculateAllDates(calculateSummer(this.year)),
       ];
       let eventDates = createIcsEventDates(dates);
-
       let value = createIcs(eventDates);
+
       if (value != null) {
         downloadIcs(value, this.year);
       }
