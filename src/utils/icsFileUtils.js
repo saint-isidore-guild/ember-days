@@ -19,16 +19,14 @@ export function downloadIcsFile(value, year) {
     var blob = new Blob([value], {
         type: 'text/calendar;charset=utf8'
     });
-    if (window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveBlob(blob, filename);
-    } else {
-        var elem = window.document.createElement('a');
-        elem.href = window.URL.createObjectURL(blob);
-        elem.download = filename;
-        document.body.appendChild(elem);
-        elem.click();
-        document.body.removeChild(elem);
-    }
+
+    var elem = window.document.createElement('a');
+    elem.href = window.URL.createObjectURL(blob);
+    elem.download = filename;
+    document.body.appendChild(elem);
+    elem.click();
+    document.body.removeChild(elem);
+
 }
 
 export function createIcsEventDates(dates) {
