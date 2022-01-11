@@ -19,17 +19,20 @@ import SeasonCard from "@/components/SeasonCard";
     props: {year: Number},
     computed: {
       fall() {
-        return calculateFall(this.year)
+        this.$store.commit("setFall", calculateFall(this.year))
+        return this.$store.getters.fall
       },
       winter() {
-        return calculateWinter(this.year)
+        this.$store.commit("setWinter", calculateWinter(this.year))
+        return this.$store.getters.winter
       },
       spring() {
-        return calculateSpring(this.year)
+        this.$store.commit("setSpring", calculateSpring(this.year))
+        return this.$store.getters.spring
       },
       summer() {
-        return calculateSummer(this.year)
-      }
+        this.$store.commit("setSummer", calculateSummer(this.year))
+        return this.$store.getters.summer    }
     }
   }
 </script>

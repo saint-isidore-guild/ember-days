@@ -6,17 +6,7 @@
 </template>
 
 <script>
-import {
-  createIcsFile,
-  downloadIcsFile,
-  createIcsEventDates,
-} from "../utils/icsFileUtils";
-import {
-  calculateFall,
-  calculateWinter,
-  calculateSpring,
-  calculateSummer,
-} from "../utils/dateUtils";
+import {createIcsFile, downloadIcsFile, createIcsEventDates} from "../utils/icsFileUtils";
 import { calculateAllDates } from "@/utils/dateUtils";
 
 export default {
@@ -25,10 +15,10 @@ export default {
   methods: {
     addToCalendar: function () {
       let dates = [
-        calculateAllDates(calculateFall(this.year)),
-        calculateAllDates(calculateWinter(this.year)),
-        calculateAllDates(calculateSpring(this.year)),
-        calculateAllDates(calculateSummer(this.year)),
+        ...calculateAllDates(this.$store.getters.fall),
+        ...calculateAllDates(this.$store.getters.winter),
+        ...calculateAllDates(this.$store.getters.spring),
+        ...calculateAllDates(this.$store.getters.summer),
       ];
       let eventDates = createIcsEventDates(dates);
       let value = createIcsFile(eventDates);
@@ -36,8 +26,8 @@ export default {
       if (value != null) {
         downloadIcsFile(value, this.year);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -1,9 +1,9 @@
 import Vevent from '../utils/vevent';
+import { createEvents } from "ics";
 
 export function createIcsFile(eventDates) {
 
-    const ics = require('ics');
-    const { error, value } = ics.createEvents(eventDates);
+    const { error, value } = createEvents(eventDates);
 
     if (error) {
         console.log(error);
@@ -32,16 +32,11 @@ export function downloadIcsFile(value, year) {
 export function createIcsEventDates(dates) {
     const events = []; //Array of ember days with ics attributes to be fed into ics file. 
 
-    for (let i = 0; i < dates.length; i++) {
-        for (let j = 0; j < dates[i].length; j++) {
-            let date = new Date(dates[i][j]);
-            let event = new Vevent(
-                startDay(date),
-                endDay(date) // must be day after
-            );
-            events.push(event);
-        }
-    }
+    dates.forEach((emberDay) => {
+        let date = new Date(emberDay);
+        let event = new Vevent(startDay(date));
+        events.push(event);
+    })
     return events;
 }
 
@@ -52,21 +47,4 @@ const startDay = (date) => {
     return result; // array with start day, year, month, and day. (e.g. [2022, 3, 9])
 }
 
-const endDay = (date) => {
-    let endDate = new Date(date);
-    let result = [date.getFullYear()];
-
-    endDate.setDate(date.getDate() + 1);
-
-    if ((endDate.getDate()) < date.getDate()) { //check if it was last day of month.
-        endDate.setMonth(date.getMonth() + 2);
-        result.push(endDate.getMonth());
-    } else {
-        result.push(date.getMonth() + 1);
-    }
-
-    result.push(endDate.getDate());
-
-    return result; // array with day after start day, year, month, and day.
-}
 
