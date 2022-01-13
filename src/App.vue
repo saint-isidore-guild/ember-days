@@ -72,6 +72,10 @@
 
       <ember-days :year="year"></ember-days>
 
+      <div class="d-flex justify-center my-5">
+        <calendar-generator  :year="year"></calendar-generator>
+      </div>
+
     </v-main>
     <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }} </span> <a href="https://saint-isidore-guild.github.io/" target="_blank" class="pl-2"> St. Isidore Guild</a>
@@ -80,18 +84,21 @@
 </template>
 
 <script>
-import EmberDays from "./components/EmberDays"
+import EmberDays from "./components/EmberDays";
+import CalendarGenerator from "./components/CalendarGenerator";
+
 
 export default {
   name: 'App',
 
   components: {
-    EmberDays
+    EmberDays,
+    CalendarGenerator
   },
 
   data: () => ({
     year: new Date().getFullYear(),
-    dialog: false
-  }),
+    dialog: false,
+  })
 };
 </script>

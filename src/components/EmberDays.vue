@@ -12,24 +12,30 @@
 <script>
 import {calculateFall, calculateWinter, calculateSpring, calculateSummer} from "../utils/dateUtils"
 import SeasonCard from "@/components/SeasonCard";
+import {mapGetters} from "vuex";
 
   export default {
     name: 'EmberDays',
     components: {SeasonCard},
     props: {year: Number},
-    computed: {
-      fall() {
-        return calculateFall(this.year)
-      },
-      winter() {
-        return calculateWinter(this.year)
-      },
-      spring() {
-        return calculateSpring(this.year)
-      },
-      summer() {
-        return calculateSummer(this.year)
+    methods: {
+      setStartDates() {
+          this.$store.commit("setFall", calculateFall(this.year))
+          this.$store.commit("setWinter", calculateWinter(this.year))
+          this.$store.commit("setSpring", calculateSpring(this.year))
+          this.$store.commit("setSummer", calculateSummer(this.year))
       }
+    },
+    computed: {
+      ...mapGetters(['fall', 'winter', 'spring', 'summer']),
+    },
+    watch: {
+        year() {
+            this.setStartDates()
+        }
+    },
+    mounted() {
+        this.setStartDates()
     }
   }
 </script>
