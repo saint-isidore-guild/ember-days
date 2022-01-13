@@ -73,10 +73,8 @@
       <ember-days :year="year"></ember-days>
 
       <div class="d-flex justify-center my-5">
-      <calendar-generator  :year="year"></calendar-generator>
+        <calendar-generator  :year="year"></calendar-generator>
       </div>
-
-    
 
     </v-main>
     <v-footer app>

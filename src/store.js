@@ -6,10 +6,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        fall: Date,
-        winter: Date,
-        spring: Date,
-        summer: Date
+        fall: new Date(),
+        winter: new Date(),
+        spring: new Date(),
+        summer: new Date()
     },
     getters: {
         fall: state => {
